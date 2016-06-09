@@ -8,6 +8,7 @@ all: libradiohead.so
 
 libradiohead.so: RH_NRF24.o RHMesh.o RHRouter.o RHReliableDatagram.o RHDatagram.o RasPi.o RHHardwareSPI.o RHNRFSPIDriver.o RHGenericDriver.o RHGenericSPI.o adapter.o
 	$(CC) $(CFLAGS) -shared -o libradiohead.so *.o -lbcm2835
+	rm *.o
 
 adapter.o: $(RADIOHEADBASE)/adapter.cpp
 	$(CC) $(CFLAGS) -c $(RADIOHEADBASE)/adapter.cpp $(INCLUDE)
