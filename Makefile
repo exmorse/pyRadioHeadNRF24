@@ -14,8 +14,8 @@ all: libradiohead.so
 libradiohead.so: RH_NRF24.o RHMesh.o RHRouter.o RHReliableDatagram.o RHDatagram.o RasPi.o RHHardwareSPI.o RHNRFSPIDriver.o RHGenericDriver.o RHGenericSPI.o adapter.o
 	$(CC) $(CFLAGS) -shared -o libradiohead.so *.o -lbcm2835
 
-adapter.o: adapter.cpp
-	$(CC) $(CFLAGS) -c adapter.cpp $(INCLUDE)
+adapter.o: $(RADIOHEADBASE)/adapter.cpp
+	$(CC) $(CFLAGS) -c $(RADIOHEADBASE)/adapter.cpp $(INCLUDE)
 
 RasPi.o: $(RADIOHEADBASE)/RHutil/RasPi.cpp
 	$(CC) $(CFLAGS) -c $(RADIOHEADBASE)/RHutil/RasPi.cpp $(INCLUDE)
@@ -54,5 +54,5 @@ client_RH: client_RH.o RH_NRF24.o RHMesh.o RHRouter.o RHReliableDatagram.o RHDat
 	$(CC) $^ $(LIBS) -o client_RH
 
 clean:
-	rm -rf *.o RasPiRH client_RH
+	rm -rf *.o *.so
 
