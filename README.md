@@ -1,4 +1,4 @@
- pyRadioHeadNR
+pyRadioHeadNRF24
 ===============
 
 Requirements:
