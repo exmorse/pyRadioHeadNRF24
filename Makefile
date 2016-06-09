@@ -1,8 +1,3 @@
-# Makefile
-# Sample for RH_NRF24 on Raspberry Pi
-# Caution: requires bcm2835 library to be already installed
-# http://www.airspayce.com/mikem/bcm2835/
-
 CC            = g++
 CFLAGS        = -DRASPBERRY_PI -DBCM2835_NO_DELAY_COMPATIBILITY -fPIC
 LIBS          = -lbcm2835
