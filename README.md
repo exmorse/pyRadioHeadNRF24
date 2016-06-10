@@ -21,9 +21,10 @@ Refere to the standard RadioHead nRF24L01(+) wirings
 
 Running Examples:
 -----------------
+Once the package is compiled run:
 
-	sudo ./client_RH.py
+	sudo ./server.py
 
 or
 
-	sudo ./RasPiTH.py
+	sudo ./reliable_datagram_server.py
