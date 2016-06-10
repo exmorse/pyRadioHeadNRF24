@@ -11,14 +11,20 @@ RHReliableDatagram* manager = NULL;
 int _init() {
         if (!bcm2835_init()) {
                 printf("Startup Failed\n");
-                return 1;
+                return -1;
         }
-        if (!radio.init())
-                printf("Init Failed\n");
+        if (!radio.init()) {
+		printf("Init Failed\n");
+		return -1;
+	}
+
+	return 0;
 }
 
 int _setChannel(int c) {
-	return radio.setChannel(c);
+	bool b = radio.setChannel(c);
+	if (b) return 0;
+	else return -1;
 }
 
 int _setRF(int dr, int tp) {
@@ -64,7 +70,9 @@ int _setRF(int dr, int tp) {
 			return -1;
 	}
 	
-	return radio.setRF(datarate, transmitpower);
+	bool b = radio.setRF(datarate, transmitpower);
+	if (b) return 0;
+	else return -1; 
 }
 
 int _send(uint8_t* data, uint8_t len) {

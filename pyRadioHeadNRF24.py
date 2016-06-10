@@ -3,7 +3,6 @@
 from cffi import FFI
 
 ffi = FFI()
-radiohead = ffi.dlopen("./libradiohead.so")
 
 buf = ffi.new("char*")
 l = ffi.new("uint8_t*")
@@ -37,10 +36,96 @@ class nRF24:
 	 	  int setRetries(uint8_t retries);\
 	 	  int retransmissions();\
 	  	  int resetRetransmissions();")
+	
+		global radiohead 
+		radiohead = ffi.dlopen("./libradiohead.so")
 
     		
 	def init(self):
-		radiohead.init();
+		r = radiohead.init()
+		if r != 0:
+			raise RuntimeError("nRF24 init failed")
 
 	def managerInit(self, address):
-		radiohead.managerInit(2);
+		radiohead.managerInit(2)
+
+	def setChannel(self, channel):
+		r = radiohead.setChannel(channel)
+		if r != 0:
+			raise RuntimeError("nRF24 setChannel failed")
+
+	def setRF(self, datarate, transmitpower):
+		r = radiohead.setRF(datarate, transmitpower)
+		if r != 0:
+			raise RuntimeError("nRF24 setRF failed")
+
+	def send(self, data, l):
+		r = radiohead.send(data, l)
+		if r != 0:
+			raise RuntimeError("nRF24 send failed")
+
+	def waitPacketSent(self):
+		radiohead.waitPacketSent()
+
+	def waitAvailableTimeout(self):
+		radiohead.waitAvailableTimeout()
+
+	def available(self):
+		b = radiohead.available()
+		if (b == 1):
+			return True
+		else:
+			return False
+		
+
+	def recv(self):
+		radiohead.recv(buf, l)
+		return (ffi.string(buf), l[0])
+
+	def maxMessageLength(self):
+		return radiohead.maxMessageLength()
+
+	def isSending(self):
+		b = radiohead.isSending()
+		if b == 1:
+			return True
+		else:
+			return False
+
+	def printRegisters(self):
+		radiohead.printRegisters()
+
+	def setNetworkAddress(self, address, l):
+		radiohead.setNetworkAddress(address, l)
+
+	def sleep(self):
+		radiohead.enterSleepMode()
+
+	def recvfromAck(self):
+		radiohead.recvfromAck(buf, l, src)
+		return (ffi.string(buf), l[0], src[0])
+
+	def recvfromAckTimeout(self, timeout):
+		ris = radiohead.recvfromAck(buf, l, timeout, src)
+		if ris > 0:
+			return (ffi.string(buf), l[0], src[0])
+		else:
+			return ("", -1, -1)
+
+	def sendtoWait(self, data, l, dst):
+		radiohead.sendtoWait(data, l, dst)
+
+	def retries(self):
+		return radiohead.retries()
+
+	def setRetries(self, retries):
+		radiohead.setRetries(retries)
+
+	def retransmissions(self):
+		return radiohead.retransmissions()
+
+	def resetRetransmissions(self):
+		radiohead.resetRetransmissions()
+
+	def setTimeout(self, timeout):
+		radiohead.setTimeout(timeout)
