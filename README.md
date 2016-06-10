@@ -23,8 +23,8 @@ Running Examples:
 -----------------
 Once the package is compiled run:
 
-	sudo ./server.py
+	sudo ./examples/server.py
 
 or
 
-	sudo ./reliable_datagram_server.py
+	sudo ./examples/reliable_datagram_server.py

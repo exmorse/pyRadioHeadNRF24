@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from cffi import FFI
+import os
 
 ffi = FFI()
 
@@ -38,7 +39,9 @@ class nRF24:
 	  	  int resetRetransmissions();")
 	
 		global radiohead 
-		radiohead = ffi.dlopen("./libradiohead.so")
+		#radiohead = ffi.dlopen("./libradiohead.so")
+		path_string = os.path.dirname(__file__) + "/libradiohead.so"
+		radiohead = ffi.dlopen(path_string)
 
     		
 	def init(self):

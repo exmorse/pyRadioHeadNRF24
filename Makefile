@@ -50,5 +50,5 @@ client_RH: client_RH.o RH_NRF24.o RHMesh.o RHRouter.o RHReliableDatagram.o RHDat
 	$(CC) $^ $(LIBS) -o client_RH
 
 clean:
-	rm -rf *.o *.so
+	rm -rf *.o *.so *.pyc
 
