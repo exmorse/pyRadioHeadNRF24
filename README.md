@@ -18,12 +18,12 @@ Wirings:
 pyRadioHeadNRF24 uses the standard RadioHead nRF24L01(+) wirings
 
       RasPi    pin            nRF24L01
-      3.3V       2 ------------- VCC   (3.3V in)
+      3.3V       1 ------------- VCC   (3.3V in)
     GPIO25      22 ------------- CE   (chip enable in)
     GPIO8       24 ------------- CSN   (chip select in)
     GPIO11      23 ------------- SCK   (SPI clock in)
-    GPIO10      19 ------------- SDI   (SPI Data in)
-    GPIO9       21 ------------- SDO   (SPI data out)
+    GPIO10      19 ------------- SDI/MOSI (SPI Data in)
+    GPIO9       21 ------------- SDO/MISO (SPI data out)
                                  IRQ   (Interrupt output, not connected)
        GND       6 ------------- GND   (ground in)
 
