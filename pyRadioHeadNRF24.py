@@ -50,7 +50,7 @@ class nRF24:
 			raise RuntimeError("nRF24 init failed")
 
 	def managerInit(self, address):
-		radiohead.managerInit(2)
+		radiohead.managerInit(address)
 
 	def setChannel(self, channel):
 		r = radiohead.setChannel(channel)
@@ -116,7 +116,7 @@ class nRF24:
 			return ("", -1, -1)
 
 	def sendtoWait(self, data, l, dst):
-		radiohead.sendtoWait(data, l, dst)
+		return radiohead.sendtoWait(data, l, dst)
 
 	def retries(self):
 		return radiohead.retries()
