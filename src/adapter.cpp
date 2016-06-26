@@ -107,7 +107,7 @@ int _recv(char* buf, uint8_t* len) {
 	uint8_t len2 = sizeof(buf2);
 	
 	bool b = radio.recv(buf2, &len2);
-	printf("Received : %s (%d)\n", (char*)buf2, len2);
+	//printf("Received : %s (%d)\n", (char*)buf2, len2);
 
 	strcpy(buf, (char*)buf2);
 	//buf[(int)len2] = 0;
@@ -161,7 +161,7 @@ int _recvfromAck(char* buf, uint8_t* len, uint8_t* from) {
 	uint8_t from2;
 		
 	bool b = manager->recvfromAck(buf2, &len2, &from2);
-	printf("Received : %s (%d) (from %d)\n", (char*)buf2, len2, from2);
+	//printf("Received : %s (%d) (from %d)\n", (char*)buf2, len2, from2);
 	strcpy(buf, (char*)buf2);
 	*len = len2; 	
 	*from = from2;
@@ -178,7 +178,7 @@ int _recvfromAckTimeout(char* buf, uint8_t* len, uint16_t timeout, uint8_t* from
 	bool b = manager->recvfromAckTimeout(buf2, &len2, timeout, &from2);
 
 	if (b) {
-		printf("Received : %s (%d) (from %d)\n", (char*)buf2, len2, from2);
+		//printf("Received : %s (%d) (from %d)\n", (char*)buf2, len2, from2);
 		strcpy(buf, (char*)buf2);
 		*len = len2; 	
 		*from = from2;
