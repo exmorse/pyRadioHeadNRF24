@@ -32,7 +32,7 @@ pyRadioHeadNRF24 uses the standard RadioHead nRF24L01(+) wirings
 Writing programs using pyRadioHeadNRF24
 ---------------------------------------
 - Import the module: ```import pyRadioHeadNRF24 as Radio```
-* If the program is in a different directory, the path to pyRadioHeadNRF24 need to be added to PYTONPATH
+* If the program is in a different directory, the path to pyRadioHeadNRF24 need to be added to PYTHONPATH
 
 ###Using directly the Driver with no Manager
 - Instantiate an object of the ```nRF24``` class: ```nrf24 = Radio.nRF24()```
@@ -59,7 +59,7 @@ Writing programs using pyRadioHeadNRF24
 
 ###Using the ReliableDatagram Manager
 - Instantiate an object of the ```nRF24``` class: ```nrf24 = Radio.nRF24()```
-- Call the initalizer: ```nrf24.managerInit(<MY_ADDRESS>)```, where the address as an integer
+- Call the initalizer: ```nrf24.managerInit(<MY_ADDRESS>)```, where the address is an integer
 
 
 ####Sending and Receiving
