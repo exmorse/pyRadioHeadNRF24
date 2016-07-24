@@ -12,6 +12,17 @@ src = ffi.new("uint8_t*")
 src[0] = 0
 
 class nRF24:
+
+	# Data Rate Values
+	DataRate1Mbps = 1
+	DataRate2Mbps = 2
+
+	# Transmit Power Values
+	TransmitPower0dBm = 0
+	TransmitPower0dBm = 6
+	TransmitPower0dBm = 12
+	TransmitPower0dBm = 18
+
 	def __init__(self):
 
 		ffi.cdef("int init();\
