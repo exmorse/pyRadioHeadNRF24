@@ -58,6 +58,18 @@ Writing programs using pyRadioHeadNRF24
 
 
 ###Using the ReliableDatagram Manager
+- Instantiate an object of the ```nRF24``` class: ```nrf24 = Radio.nRF24()```
+- Call the initalizer: ```nrf24.managerInit(<MY_ADDRESS>)```, where the address as an integer
+
+
+####Sending and Receiving
+	
+	 nrf24.sendtoWait(msg, len(msg), destination)  
+	
+	
+	if nrf24.available():  
+         (msg, l, source) = nrf24.recvfromAck()
+         
 Running Examples:
 -----------------
 Once the package is compiled run:
