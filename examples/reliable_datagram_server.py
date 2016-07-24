@@ -21,7 +21,7 @@ while True:
 		(msg, l, source) = nrf24.recvfromAck()
 		print "Receied: " + msg + " (" + str(l) + ") from: " + str(source) 
 
-		msg = "AjStyles\0"
+		msg = "Hello\0"
 		nrf24.sendtoWait(msg, len(msg), source)
 
 		time.sleep(1)

@@ -24,7 +24,7 @@ while True:
 		(msg, l) = nrf24.recv()
 		print "Receied: " + msg + " (" + str(l) + ")"
 
-		msg = "AjStyles\0"
+		msg = "Hello\0"
 		nrf24.send(msg, len(msg))
 		nrf24.waitPacketSent()
 
