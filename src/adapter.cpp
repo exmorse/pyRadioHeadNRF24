@@ -220,6 +220,22 @@ int _resetRetransmissions() {
 	return 0;
 }
 
+int _setModeIdle() {
+	radio.setModeIdle();
+	return 0;
+}
+
+int _setModeTx() {
+	radio.setModeTx();
+	return 0;
+}
+
+int _setModeRx() {
+	radio.setModeRx();
+	return 0;
+}
+
+
 extern "C" {
         extern int init() {
                 return _init();
@@ -307,5 +323,17 @@ extern "C" {
 
 	extern int setTimeout(uint16_t timeout) {
 		return _setTimeout(timeout);
+	}
+	
+	extern int setModeIdle() {
+		return _setModeIdle();
+	}
+	
+	extern int setModeTx() {
+		return _setModeTx();
+	}
+	
+	extern int setModeRx() {
+		return _setModeRx();
 	}
 }

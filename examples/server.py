@@ -12,7 +12,7 @@ nrf24 = radio.nRF24()
 
 nrf24.init()
 nrf24.setChannel(1)
-nrf24.setRF(radio.nRF24.DataRate1Mbps, radio.nRF24.TransmitPower0dBm)
+nrf24.setRF(radio.nRF24.DataRate2Mbps, radio.nRF24.TransmitPower0dBm)
 
 print "StartUp Done!"
 print "Receiving..."

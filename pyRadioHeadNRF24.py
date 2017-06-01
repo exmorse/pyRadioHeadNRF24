@@ -19,9 +19,9 @@ class nRF24:
 
 	# Transmit Power Values
 	TransmitPower0dBm = 0
-	TransmitPower0dBm = 6
-	TransmitPower0dBm = 12
-	TransmitPower0dBm = 18
+	TransmitPowerm6dBm = 6
+	TransmitPowerm12dBm = 12
+	TransmitPowerm18dBm = 18
 
 	def __init__(self):
 
@@ -38,6 +38,9 @@ class nRF24:
 	 	  int printRegisters();\
 	  	  int setNetworkAddress(uint8_t* address, uint8_t len);\
 	 	  int enterSleepMode();\
+	 	  int setModeIdle();\
+	 	  int setModeTx();\
+	 	  int setModeRx();\
 	  	  \
 	  	  int managerInit(int address);\
 	  	  int sendtoWait(uint8_t* data, uint8_t len, uint8_t dst);\
@@ -143,3 +146,12 @@ class nRF24:
 
 	def setTimeout(self, timeout):
 		radiohead.setTimeout(timeout)
+	
+	def setModeIdle(self):
+		radiohead.setModeIdle()
+	
+	def setModeTx(self):
+		radiohead.setModeTx()
+	
+	def setModeRx(self):
+		radiohead.setModeRx()

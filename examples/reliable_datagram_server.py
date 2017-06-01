@@ -22,7 +22,9 @@ while True:
 		print "Receied: " + msg + " (" + str(l) + ") from: " + str(source) 
 
 		msg = "Hello\0"
-		nrf24.sendtoWait(msg, len(msg), source)
+		print "Sending..."
+		ret = nrf24.sendtoWait(msg, len(msg), source)
+		print "Sent " + str(ret)
 
 		time.sleep(1)
 
