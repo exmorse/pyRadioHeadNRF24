@@ -34,7 +34,7 @@ Writing programs using pyRadioHeadNRF24
 - Import the module: ```import pyRadioHeadNRF24 as Radio```
 * If the program is in a different directory, the path to pyRadioHeadNRF24 need to be added to PYTHONPATH
 
-###Using directly the Driver with no Manager
+### Using directly the Driver with no Manager
 - Instantiate an object of the ```nRF24``` class: ```nrf24 = Radio.nRF24()```
 - Call the initalizer: ```nrf24.init()```
 - Set the channel: ```nrf24.setChannel(<CHANNEL>)```
@@ -47,7 +47,7 @@ Writing programs using pyRadioHeadNRF24
 	- ```TransmitPower18dBm```
 - Optionally set network address: ```nrf24.setNetworkAddress(<ADDRESS>, <ADDRESS_LEN>)```
 
-####Sending and Receiving
+#### Sending and Receiving
 	
 	nrf24.send(msg, len(msg))  
 	nrf24.waitPacketSent()  
@@ -57,12 +57,12 @@ Writing programs using pyRadioHeadNRF24
         (msg, l) = nrf24.recv()    
 
 
-###Using the ReliableDatagram Manager
+### Using the ReliableDatagram Manager
 - Instantiate an object of the ```nRF24``` class: ```nrf24 = Radio.nRF24()```
 - Call the initalizer: ```nrf24.managerInit(<MY_ADDRESS>)```, where the address is an integer
 
 
-####Sending and Receiving
+#### Sending and Receiving
 	
 	 nrf24.sendtoWait(msg, len(msg), destination)  
 	
