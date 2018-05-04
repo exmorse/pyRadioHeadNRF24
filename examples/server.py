@@ -22,7 +22,7 @@ while True:
 	#if True:
 		print "Available"
 		(msg, l) = nrf24.recv()
-		print "Receied: " + msg + " (" + str(l) + ")"
+		print "Received: " + msg + " (" + str(l) + ")"
 
 		msg = "Hello\0"
 		nrf24.send(msg, len(msg))
