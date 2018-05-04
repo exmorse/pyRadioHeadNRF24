@@ -19,7 +19,7 @@ while True:
 	if nrf24.available():
 		print "Available"
 		(msg, l, source) = nrf24.recvfromAck()
-		print "Receied: " + msg + " (" + str(l) + ") from: " + str(source) 
+		print "Received: " + msg + " (" + str(l) + ") from: " + str(source) 
 
 		msg = "Hello\0"
 		print "Sending..."
